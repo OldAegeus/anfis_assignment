@@ -1,0 +1,14 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Tasks}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{ANFIS Implentation for 3D Planar Arm}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{Method}{subsection.2.1}% 4
+\BOOKMARK [3][-]{subsubsection.2.1.2}{Results and Discussion}{subsection.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.2}{ANFIS vs. Neural Network}{section.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Method}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Results and Discussion}{subsection.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Singularity Considerations}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Method}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Results and Discussion}{subsection.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.4}{Search Algorithm for Parameters}{section.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.4.1}{Method}{subsection.2.4}% 13
+\BOOKMARK [3][-]{subsubsection.2.4.2}{Results and Discussion}{subsection.2.4}% 14
