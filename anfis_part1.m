@@ -3,7 +3,7 @@
 clc, cla
 
 %Split of data (validation set is 1-trn_data_per)
-trn_data_per = 0.7;
+trn_data_per = 0.5;
 
 
 %Link lengths
@@ -16,6 +16,12 @@ l_3 = 7;
 th_1 = 0:0.05:pi/2;
 th_2 = 0:0.1:pi;
 th_3 = -pi/2:0.1:pi/2;
+
+%ANFIS Epochs
+
+th_1_epoch = 200;
+th_2_epoch = 200;
+th_3_epoch = 200;
 
 %% Generate data
 
@@ -79,3 +85,37 @@ title(['Training (' num2str(trn_data_per*100) '%) vs. Validation Points. (' num2
 legend;
 saveas(figure(1),['trnvsval' num2str(trn_data_per*100) '.jpg'])
 
+%% Generate the initial fuzzy inference system
+
+th_1_fismat = genfis2(th_1_data_trn(:,1:3), th_1_data_trn(:,4),0.2);
+th_2_fismat = genfis2(th_1_data_trn(:,1:3), th_1_data_trn(:,4),0.2);
+th_3_fismat = genfis2(th_1_data_trn(:,1:3), th_1_data_trn(:,4),0.2);
+
+%%
+
+fprintf('-->%s\n','Training theta_1 ANFIS network.')
+opt = anfisOptions('InitialFIS',th_1_fismat,'EpochNumber',th_1_epoch);
+opt.DisplayANFISInformation = 0;
+opt.DisplayErrorValues = 0;
+opt.DisplayStepSize = 0;
+opt.DisplayFinalResults = 0;
+opt.ValidationData = th_1_data_val;
+[th_1_anfis,th_1_trnErr,th_1_ss,th_1_valAnfis,th_1_valErr] = anfis(th_1_data_trn,opt);
+
+fprintf('-->%s\n','Training theta_2 ANFIS network.')
+opt = anfisOptions('InitialFIS',th_2_fismat,'EpochNumber',th_2_epoch);
+opt.DisplayANFISInformation = 0;
+opt.DisplayErrorValues = 0;
+opt.DisplayStepSize = 0;
+opt.DisplayFinalResults = 0;
+opt.ValidationData = th_2_data_val;
+[th_2_anfis,th_2_trnErr,th_2_ss,th_2_valAnfis,th_2_valErr] = anfis(th_2_data_trn,opt);
+
+fprintf('-->%s\n','Training theta_3 ANFIS network.')
+opt = anfisOptions('InitialFIS',th_3_fismat,'EpochNumber',th_3_epoch);
+opt.DisplayANFISInformation = 0;
+opt.DisplayErrorValues = 0;
+opt.DisplayStepSize = 0;
+opt.DisplayFinalResults = 0;
+opt.ValidationData = th_3_data_val;
+[th_3_anfis,th_3_trnErr,th_3_ss,th_3_valAnfis,th_3_valErr] = anfis(th_3_data_trn,opt);
